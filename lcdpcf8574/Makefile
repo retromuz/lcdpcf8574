@@ -1,3 +1,22 @@
+# Makefile:
+#	lcdpcf8574 - Drive HD44780 based LCD via two pins on Raspberry pi - I²C
+#
+#	Copyright (c) 2013 Prageeth Karunadheera. http://karunadheera.com/
+#################################################################################
+#    lcdpcf8574 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Lesser General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    lcdpcf8574 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Lesser General Public License for more details.
+#
+#    You should have received a copy of the GNU Lesser General Public License
+#    along with wiringPi.  If not, see <http://www.gnu.org/licenses/>.
+#################################################################################
+
 lcdpcf8574test: liblcdpcf8574.so lcdpcf8574test.o
 	$(CXX) -Wall -L. lcdpcf8574test.cpp -lrt -llcdpcf8574 -lwiringPi -o lcdpcf8574test.o 
 liblcdpcf8574.so: lcdpcf8574.cpp
