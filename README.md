@@ -1,4 +1,10 @@
 lcdpcf8574
 ==========
 
-Drive a HD44780 based LCD via I²C on Raspberry Pi - with just two pins.
+Drive a HD44780 based LCD via I²C on Raspberry Pi - with just two pins. I have used PCF8574 I²C bus expander Chip
+for this purpose. This helps limited number of Raspberry Pi's pins to be better utilized.
+
+Please take note that this code is based on the code posted by ufux at https://gist.github.com/ufux/6094977.
+
+Schematics : https://raw.githubusercontent.com/karunadheera/lcdpcf8574/master/lcdpcf8574.png
+           : https://raw.githubusercontent.com/karunadheera/lcdpcf8574/master/lcdpcf8574.svg
