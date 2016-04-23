@@ -8,3 +8,11 @@ Please take note that this code is based on the code posted by ufux at https://g
 
 Schematics : https://raw.githubusercontent.com/karunadheera/lcdpcf8574/master/lcdpcf8574.png
            : https://raw.githubusercontent.com/karunadheera/lcdpcf8574/master/lcdpcf8574.svg
+
+To build go to the source directory via a terminal.
+$ make
+$ sudo make install
+
+That's it.
+
+Enjoy!
