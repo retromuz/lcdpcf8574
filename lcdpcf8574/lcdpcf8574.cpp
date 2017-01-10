@@ -61,12 +61,12 @@ void lcdpcf8574::lcd_strobe() {
 //write data to lcd in 4 bit mode, 2 nibbles
 //high nibble is sent first
 void lcdpcf8574::lcd_write(int cmd) {
-//	write high nibble
+	// write high nibble
 	wiringPiI2CWrite(fd, (cmd & 0xF0) | blFlag);
 	wiringPiI2CRead(fd);
 	lcdpcf8574::lcd_strobe();
 
-//	then low nibble
+	// then low nibble
 	wiringPiI2CWrite(fd, (cmd << 4) | blFlag);
 	wiringPiI2CRead(fd);
 	lcdpcf8574::lcd_strobe();
@@ -77,11 +77,11 @@ void lcdpcf8574::lcd_write(int cmd) {
 //works as expected
 void lcdpcf8574::lcd_write_char(int charvalue){
 	int controlFlag = blFlag | RS;
-//	write high nibble
+	// write high nibble
 	wiringPiI2CWrite(fd, (controlFlag | (charvalue & 0xF0)));
 	lcdpcf8574::lcd_strobe();
 
-//	write low nibble
+	// write low nibble
 	wiringPiI2CWrite(fd, (controlFlag | (charvalue << 4)));
 	lcdpcf8574::lcd_strobe();
 	wiringPiI2CWrite(fd, blFlag);
@@ -102,7 +102,7 @@ void lcdpcf8574::lcd_load_custom_font(int addr, unsigned int font[8]){
 }
 
 void lcdpcf8574::_setDDRAMAddress(int line, int col){
-//we write to the Data Display RAM (DDRAM)
+	// we write to the Data Display RAM (DDRAM)
 	if(line == 0)
 		lcdpcf8574::lcd_write(LCD_SETDDRAMADDR | (0x00 + col));
 	if(line == 1)
@@ -131,9 +131,7 @@ void lcdpcf8574::lcd_put_custom(int c, int line, int col){
 
 //clear lcd and set to home
 void lcdpcf8574::lcd_clear(){
-//	self.lcd_write(0x10)
 	lcdpcf8574::lcd_write(LCD_CLEARDISPLAY);
-//	self.lcd_write(0x20)
 	lcdpcf8574::lcd_write(LCD_RETURNHOME);
 }
 
